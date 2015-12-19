@@ -8,7 +8,7 @@ using Totally_Recoded_Minicraft.level;
 
 namespace Totally_Recoded_Minicraft.item
 {
-    class Item
+    public class Item
     {
         public int getColor()
         {

@@ -65,6 +65,8 @@
     <Compile Include="Game1.cs" />
     <Compile Include="GaussianRandom1.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="entity\Inventory.cs" />
+    <Compile Include="level\tile\CactusTile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

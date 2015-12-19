@@ -14,6 +14,7 @@ namespace Totally_Recoded_Minicraft.level.tile
             : base(position)
         {
             this.data = data;
+			connectsToGrass = true;
             id = 6;
             walkable = 1;
         }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Totally_Recoded_Minicraft.level;
 using Totally_Recoded_Minicraft.level.tile;
+using MiniCraftOnline;
 
 namespace Totally_Recoded_Minicraft.levelgen
 {
@@ -105,6 +106,7 @@ namespace Totally_Recoded_Minicraft.levelgen
             List<Tile> result = createTopMap(w, h,seed);
             int numGrass=0;
             int numSand=0;
+				int numRock=0;
    foreach(Tile t in result)
    {
        if (t.GetType() == typeof(GrassTile))
@@ -115,7 +117,12 @@ namespace Totally_Recoded_Minicraft.levelgen
        {
            numSand++;
        }
+				/*	else   if (t.GetType() == typeof(RockTile))
+					{
+						numRock++;
+					}*/
    }
+//if (numRock < 100) continue;
  if (numGrass < 100) continue;
  if (numSand < 100) continue;
             return result;
@@ -229,6 +236,15 @@ namespace Totally_Recoded_Minicraft.levelgen
                         }
                     }
                 }
+				for (int i = 0; i < w * h / 100; i++) {
+				int xx = random.Next(w);
+				int yy = random.Next(h);
+				if (xx >= 0 && yy >= 0 && xx < w && yy < h) {
+					if (data[xx + yy * w].GetType() == typeof(SandTile)) {
+						data[xx + yy * w] = new CactusTile(data[xx + yy * w].position);
+					}
+				}
+				}
 
                   return data;
 

@@ -1,1 +1,18 @@
-﻿<Properties StartupItem="MiniCraftOnline\MiniCraftOnline.csproj" />
+﻿<Properties StartupItem="MiniCraftOnline\MiniCraftOnline.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MiniCraftOnline\Camera.cs">
+    <Files>
+      <File FileName="MiniCraftOnline\Game1.cs" Line="1" Column="1" />
+      <File FileName="packages\MonoGame.Framework.WindowsDX.3.3.0.0\readme.txt" Line="1" Column="1" />
+      <File FileName="MiniCraftOnline\entity\Entity.cs" Line="1" Column="1" />
+      <File FileName="MiniCraftOnline\Program.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\gfx\resources.cs" Line="10" Column="27" />
+      <File FileName="MiniCraftOnline\entity\Player.cs" Line="86" Column="22" />
+      <File FileName="MiniCraftOnline\Camera.cs" Line="16" Column="23" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -34,8 +34,11 @@ namespace Totally_Recoded_Minicraft
             }
 
 		//	8*
-			if (_pos.Y > game.mapHeigth*16-game._height+16 ) {
-				_pos.Y = game.mapHeigth*16-game._height+16 ;
+			if (_pos.Y > game.mapHeigth*16-game._width+16  ) {
+				_pos.Y = game.mapHeigth*16-game._width+16;
+			}
+			if (_pos.X >game.mapWidth*16-game._width ) {
+				_pos.X = game.mapWidth*16-game._width ;
 			}
        /*     if(game.currentlevel.w*16<_pos.X)
             {

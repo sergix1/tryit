@@ -39,6 +39,7 @@ namespace Totally_Recoded_Minicraft.level
             this.w = w;
             this.h = h;
            seed = RandomString(6);
+			//seed = "HST1HM";
 			List<Tile> maps = LevelGen.createAndValidateTopMap(w, h,seed);
             this.tiles3 = maps;
             this.tiles = maps;
@@ -188,9 +189,13 @@ namespace Totally_Recoded_Minicraft.level
         }
         internal Tile getTile(Vector2 p)
         {
+			try{
             int num = (int)p.X + (int)(p.Y * w);
             return tiles[num];
-
+			}
+			catch{
+				return tiles[0];
+			}
         }
     }
 }

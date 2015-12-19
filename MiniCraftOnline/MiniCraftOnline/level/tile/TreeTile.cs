@@ -19,6 +19,7 @@ namespace Totally_Recoded_Minicraft.level.tile
         public TreeTile(Vector2 position)
             : base(position)
         {
+			connectsToGrass = true;
           id = 1;
             walkable = 0;
         }
@@ -26,21 +27,41 @@ namespace Totally_Recoded_Minicraft.level.tile
         {
             Color cole = new Color(131, 131 + 111, 131, 131 + 111);
             Color col = new Color(10, 151, 30, 131);
-            //    screen.draw(sprite, new Vector2(base.position.X, base.position.Y), 10 + 1 * 32, col, SpriteEffects.None);
-            //   screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y + 0), 10 + 2 * 32, col, SpriteEffects.None);
-            //  screen.draw(sprite, new Vector2(base.position.X + 0, base.position.Y + 8), 10 + 2 * 32, col, SpriteEffects.None);
-            // screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y + 8), 10 + 1 * 32, col, SpriteEffects.None);
+			bool u = level.getTile(new Vector2(position.X/16, position.Y/16 - 1)) == this;
+			bool l = level.getTile(new Vector2(position.X/16 - 1,position.Y/16)) == this;
+			bool r = level.getTile(new Vector2(position.X/16 + 1, position.Y/16)) == this;
+			bool d = level.getTile(new Vector2(position.X/16, position.Y/16+ 1)) == this;
+			bool ul = level.getTile(new Vector2(position.X/16 - 1, position.Y/16 - 1)) == this;
+			bool ur = level.getTile(new Vector2(position.X/16 + 1, position.Y/16- 1)) == this;
+		    bool dl = level.getTile(new Vector2(position.X/16 - 1, position.Y/16 + 1)) == this;
+			bool dr = level.getTile(new Vector2(position.X/16 + 1, position.Y/16+ 1)) == this;
+           screen.draw(sprite, new Vector2(base.position.X, base.position.Y), 0 * 0, Color.White, SpriteEffects.None);
+           screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y), 1, Color.White, SpriteEffects.None);
+          screen.draw(sprite, new Vector2(base.position.X + 0, base.position.Y + 8), 2, Color.White, SpriteEffects.None);
+           screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y + 8), 3, Color.White, SpriteEffects.None);
 
 
-            screen.draw(sprite, new Vector2(base.position.X, base.position.Y), 0 * 0, Color.White, SpriteEffects.None);
-            screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y), 1, Color.White, SpriteEffects.None);
-            screen.draw(sprite, new Vector2(base.position.X + 0, base.position.Y + 8), 2, Color.White, SpriteEffects.None);
-            screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y + 8), 3, Color.White, SpriteEffects.None);
+			if (u && ul && l) {
+				screen.draw(sprite, new Vector2(base.position.X, base.position.Y), 10 + 1 * 32, Color.White, SpriteEffects.None);
+			} else {
+				screen.draw(sprite, new Vector2(base.position.X, base.position.Y), 9 + 0 * 32, Color.White, SpriteEffects.None);
+			}
+			if (u && ur && r) {
+				screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y + 0), 10 + 2 * 32, Color.White, SpriteEffects.None);
+			} else {
+				screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y + 0), 10 + 0 * 32, Color.White, SpriteEffects.None);
+			}
 
-            screen.draw(sprite, new Vector2(base.position.X, base.position.Y), 9 + 0 * 32, Color.White, SpriteEffects.None);
-            screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y + 0), 10 + 0 * 32, Color.White, SpriteEffects.None);
-            screen.draw(sprite, new Vector2(base.position.X + 0, base.position.Y + 8), 9 + 1 * 32, Color.White, SpriteEffects.None);
-            screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y + 8), 10 + 3 * 32, Color.White, SpriteEffects.None);
+			if (d && dl && l) {
+				screen.draw(sprite, new Vector2(base.position.X + 0, base.position.Y + 8), 10 + 2 * 32, Color.White, SpriteEffects.None);
+			} else {
+				screen.draw(sprite, new Vector2(base.position.X + 0, base.position.Y + 8), 9 + 1 * 32, Color.White, SpriteEffects.None);
+			}
+			if (d && dr && r) {
+				screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y + 8), 10 + 1 * 32, Color.White, SpriteEffects.None);
+			} else {
+				screen.draw(sprite, new Vector2(base.position.X + 8, base.position.Y + 8), 10 + 3 * 32, Color.White, SpriteEffects.None);
+			}
             base.Draw(sprite, screen, level);
         }
         public override void hurt(Level level, int x, int y, Mob source, int dmg, int attackDir)

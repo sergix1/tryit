@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Totally_Recoded_Minicraft.level;
+using Totally_Recoded_Minicraft.level.tile;
 
 namespace Totally_Recoded_Minicraft.entity
 {
@@ -23,5 +24,9 @@ namespace Totally_Recoded_Minicraft.entity
             }
             return base.move(xa, ya,level);
         }
+		protected bool isSwimming() {
+			Tile tile = level.getTile(new Vector2((int)position.X >> 4, (int)position.Y >> 4));
+			return (tile.GetType() == typeof(WaterTile));
+		}
     }
 }

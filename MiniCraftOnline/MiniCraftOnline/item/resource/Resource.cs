@@ -8,7 +8,7 @@ using Totally_Recoded_Minicraft.level;
 
 namespace Totally_Recoded_Minicraft.item
 {
-    class Resource
+    public class Resource
     {
         public static Resource apple = new Resource("Apple", 9 + 4 * 32, Color.White);
         public static Resource wood = new Resource("Wood", 1 + 4 * 32, Color.White);

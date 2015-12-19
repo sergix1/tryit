@@ -8,7 +8,7 @@ using Totally_Recoded_Minicraft.item;
 
 namespace Totally_Recoded_Minicraft.entity
 {
-    class ItemEntity : Entity
+    public class ItemEntity : Entity
     {
         private int lifeTime;
         protected int walkDist = 0;

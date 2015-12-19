@@ -32,22 +32,82 @@ namespace Totally_Recoded_Minicraft.entity
             this.game = game;
             position = new Vector2(position.X+50, position.Y+50);
         }
+
+		public void checkCorners(Level level)
+		{
+			if (position.X < 0)
+				position.X = level.w * 16;
+			if (position.X > level.w * 16)
+			{
+				position.X = 0;
+			}
+			if (position.Y < 0)
+				position.Y = level.h * 16-1;
+			if (position.Y > level.h * 16)
+				position.Y = 0;
+		}
+		int limitpass;
+		public void speedHack(int xa , int ya)
+		{
+			if (limitpass >= 100)
+				speed = 1;
+			if (Keyboard.GetState().IsKeyDown(Keys.F1)) {
+				speed = 5;
+				limitpass = 0;
+			}
+			if (Keyboard.GetState ().IsKeyDown (Keys.F2)) speed = 1;
+
+				if (xa > 0)
+					limitpass += speed;
+				if (ya > 0)
+					limitpass += speed;
+		}
         public override void Update(GameTime time, Level level)
         {
+			
+		//	CollisionWithItems(level);
+
             this.time += (float)time.ElapsedGameTime.TotalMilliseconds;
             int xa = 0;
             int ya = 0;
-            if (Keyboard.GetState().IsKeyDown(Keys.Up)) ya-=speed;
-			if (Keyboard.GetState().IsKeyDown(Keys.Down)) ya+=speed;
-			if (Keyboard.GetState().IsKeyDown(Keys.Left)) xa-=speed;
-			if (Keyboard.GetState().IsKeyDown(Keys.Right)) xa+=speed;
+			if (Keyboard.GetState().IsKeyDown(Keys.Up)) {
+				ya -= speed;
+			}
+			if (Keyboard.GetState().IsKeyDown(Keys.Down)) {
+				ya += speed;
+			}
+
+			if (Keyboard.GetState().IsKeyDown(Keys.Left)) {
+				xa -= speed;
+			}
+			if (Keyboard.GetState().IsKeyDown(Keys.Right)) {
+				xa += speed;
+			}
+			speedHack(xa,ya);//mod
             if (Keyboard.GetState().IsKeyDown(Keys.C)) attack(level,time);
-            base.move(xa, ya, level);
-            if (attackTime > 0) attackTime--;
+			base.move(xa, ya, level);
+			checkCorners(level);
+			if (attackTime > 0) attackTime--;
             base.Update(time, level);
 
         }
         float ta;
+		public Rectangle rec()
+		{
+			return new Rectangle((int)position.X+4,(int)position.Y+1,14,8);
+		}
+		private void CollisionWithItems(Level level)
+		{
+			foreach (Entity t in level.entities) {
+				if (t.removed == false) {
+					if (t.GetType() == typeof(ItemEntity)) {
+						if (rec().Intersects(new Rectangle((int)t.position.X, (int)t.position.Y, 4, 4))) {
+							t.removed = true;
+						}
+					}
+				}
+			}
+		}
         public void attack(Level level,GameTime time)
         {
             ta+=(float)time.ElapsedGameTime.TotalMilliseconds;
@@ -117,7 +177,7 @@ namespace Totally_Recoded_Minicraft.entity
             game.screen.draw(sprite, new Vector2(base.position.X + 8 * flip1, base.position.Y), xt + yt * 32, col, getEffect(flip1));
             game.screen.draw(sprite, new Vector2(base.position.X + 8 - 8 * flip1, base.position.Y), xt + 1 + yt * 32,col, getEffect(flip1));
          
-            if (!isSwimming(screen))
+            if (!isSwimming())
             {
                 game.screen.draw(sprite, new Vector2(base.position.X + 8 * flip2, base.position.Y + 8), xt + (yt + 1) * 32, col, getEffect(flip2));
                 game.screen.draw(sprite, new Vector2(base.position.X + 8 - 8 * flip2, base.position.Y + 8), xt + 1 + (yt + 1) * 32,col, getEffect(flip2));
@@ -144,7 +204,7 @@ namespace Totally_Recoded_Minicraft.entity
              //   sprite.Draw(screen.game.collision, new Vector2((int)base.position.X, (int)base.position.Y + 8 + 4), new Rectangle(16, 0, 16, 8), Color.White*0.5f);
             }
 
-       //     sprite.Draw(screen.game.collision, new Vector2((base.position.X+4), (base.position.Y + 12)), new Rectangle(8, 0, 8, 3), Color.White * 0.5f, 0f, Vector2.Zero,1f, SpriteEffects.None, 0f);
+     //  sprite.Draw(screen.game.collision, new Vector2((base.position.X+4), (base.position.Y +1)), new Rectangle(24, 0, 8, 14), Color.White * 0.5f, 0f, Vector2.Zero,1f, SpriteEffects.None, 0f);
             base.Draw(sprite,screen);
         }
         public SpriteEffects getEffect (int flip)
@@ -152,18 +212,18 @@ namespace Totally_Recoded_Minicraft.entity
             if(flip==1) return SpriteEffects.FlipHorizontally;
           return SpriteEffects.None;
         }
-        public bool isSwimming(Screen screen)
+      /*  public bool isSwimming(Screen screen)
         {
      foreach (Tile t in screen.game.currentlevel.tiles)
             {
-         if(t.GetType()==typeof(WaterTile))
+         if(t.GetType()==typeof(GrassTile))
          {
-             if(new Rectangle((int)t.position.X, (int)t.position.Y, 16, 16).Intersects(new Rectangle(((int)position.X + 4), (int)(position.Y + 13), 8, 3)))
-             return true;
+					if(new Rectangle((int)t.position.X, (int)t.position.Y, 16, 16).Intersects(new Rectangle(((int)position.X+4 ), (int)(position.Y ), 8, 8)))
+             return false;
          }
             }
-     return false;
-        }
+     return true;
+        }*/
         public bool findStartPos(Level level)
         {
             while (true)
