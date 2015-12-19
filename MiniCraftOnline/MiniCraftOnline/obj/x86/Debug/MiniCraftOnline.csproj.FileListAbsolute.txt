@@ -1,0 +1,15 @@
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\obj\x86\Debug\MiniCraftOnline.csprojResolveAssemblyReference.cache
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\MiniCraftOnline.exe
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\MiniCraftOnline.pdb
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\MonoGame.Framework.dll
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\SharpDX.MediaFoundation.dll
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\SharpDX.dll
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\SharpDX.XAudio2.dll
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\SharpDX.Direct3D11.dll
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\SharpDX.DXGI.dll
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\SharpDX.Direct2D1.dll
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\SharpDX.XInput.dll
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\SharpDX.RawInput.dll
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\bin\Debug\SharpDX.Direct3D9.dll
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\obj\x86\Debug\MiniCraftOnline.exe
+C:\Users\sergi\Documents\GitHub\tryit\MiniCraftOnline\MiniCraftOnline\obj\x86\Debug\MiniCraftOnline.pdb

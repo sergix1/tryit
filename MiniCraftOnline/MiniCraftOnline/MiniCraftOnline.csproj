@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{45E8F2C7-6C8A-426E-A54F-39CBA79B6B44}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MiniCraftOnline</RootNamespace>
+    <AssemblyName>MiniCraftOnline</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\packages\MonoGame.Framework.WindowsDX.3.3.0.0\lib\net40\MonoGame.Framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="entity\Entity.cs" />
+    <Compile Include="entity\ItemEntity.cs" />
+    <Compile Include="entity\Mob.cs" />
+    <Compile Include="entity\Player.cs" />
+    <Compile Include="entity\SpriteSheet.cs" />
+    <Compile Include="entity\particles\SmashParticle.cs" />
+    <Compile Include="entity\particles\TextParticle.cs" />
+    <Compile Include="gfx\Font.cs" />
+    <Compile Include="gfx\resources.cs" />
+    <Compile Include="gfx\Screen.cs" />
+    <Compile Include="item\Item.cs" />
+    <Compile Include="item\ResourceItem.cs" />
+    <Compile Include="item\resource\Resource.cs" />
+    <Compile Include="level\Level.cs" />
+    <Compile Include="level\tile\FlowerTile.cs" />
+    <Compile Include="level\tile\GrassTile.cs" />
+    <Compile Include="level\tile\RockTile.cs" />
+    <Compile Include="level\tile\SandTile.cs" />
+    <Compile Include="level\tile\Tile.cs" />
+    <Compile Include="level\tile\TreeTile.cs" />
+    <Compile Include="level\tile\WaterTile.cs" />
+    <Compile Include="level\levelgen\LevelGen.cs" />
+    <Compile Include="Camera.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="GaussianRandom1.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon.png" />
+    <None Include="Content\Content.mgcb" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="gfx\" />
+    <Folder Include="entity\" />
+    <Folder Include="item\" />
+    <Folder Include="level\" />
+    <Folder Include="entity\particles\" />
+    <Folder Include="item\resource\" />
+    <Folder Include="level\tile\" />
+    <Folder Include="level\levelgen\" />
+  </ItemGroup>
+</Project>
